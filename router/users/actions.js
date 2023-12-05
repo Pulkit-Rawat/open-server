@@ -47,6 +47,7 @@ const userActions = {
           message: "User registered successfully.",
           success: true,
           data: {
+            uID: user._id,
             token: token,
             name: user.name,
           },
@@ -98,6 +99,7 @@ const userActions = {
         message: "Logged In.",
         success: true,
         data: {
+          uID: user._id,
           name: user.name,
           token: token,
         },
