@@ -25,6 +25,8 @@ const server = app.listen(process.env.PORT, () =>
   console.log(`Server started listening on PORT ${process.env.PORT}`)
 );
 
+app.get('/', (req, res) => res.send("cbot-server"))
+
 const io = socketIO(server, {
   cors: {
     origin: "*",
