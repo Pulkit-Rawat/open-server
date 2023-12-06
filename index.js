@@ -6,8 +6,6 @@ const cors = require("cors");
 
 const app = express();
 const userRouter = require("./router/users");
-const departmentRouter = require("./router/departments");
-const employeeRouter = require("./router/employees");
 const chatRouter = require("./router/chats");
 
 const Chat = require("./models/Chats");
@@ -18,8 +16,6 @@ app.use(cors());
 
 //routes
 app.use(userRouter);
-app.use(departmentRouter);
-app.use(employeeRouter);
 app.use(chatRouter);
 
 const socketIO = require("socket.io");
