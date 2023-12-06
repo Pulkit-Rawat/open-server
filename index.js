@@ -21,7 +21,7 @@ app.use(chatRouter);
 const socketIO = require("socket.io");
 const { getPromptRes } = require("./utilities/openai");
 
-const server = app.listen(process.env.PORT, () =>
+const server = app.listen(process.env.PORT || 4000, () =>
   console.log(`Server started listening on PORT ${process.env.PORT}`)
 );
 
