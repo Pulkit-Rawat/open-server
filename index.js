@@ -7,6 +7,7 @@ const cors = require("cors");
 const app = express();
 const userRouter = require("./router/users");
 const chatRouter = require("./router/chats");
+const mediaRouter = require("./router/media");
 
 const Chat = require("./models/Chats");
 
@@ -17,6 +18,7 @@ app.use(cors());
 //routes
 app.use(userRouter);
 app.use(chatRouter);
+app.use(mediaRouter);
 
 const socketIO = require("socket.io");
 const { getPromptRes } = require("./utilities/openai");
@@ -25,7 +27,7 @@ const server = app.listen(process.env.PORT || 4000, () =>
   console.log(`Server started listening on PORT ${process.env.PORT}`)
 );
 
-app.get('/', (req, res) => res.send("cbot-server"))
+app.get("/", (req, res) => res.send("cbot-server"));
 
 const io = socketIO(server, {
   cors: {
