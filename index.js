@@ -9,10 +9,12 @@ const userRouter = require("./router/users");
 const chatRouter = require("./router/chats");
 const mediaRouter = require("./router/media");
 const checkoutRouter = require("./router/checkout");
+const profileRouter = require("./router/profile");
+const snackRouter = require("./router/snacks");
 
 const Chat = require("./models/Chats");
 
-app.use(express.static("public"));
+app.use(express.static("uploads"));
 app.use(express.json());
 app.use(cors());
 
@@ -21,6 +23,8 @@ app.use(userRouter);
 app.use(chatRouter);
 app.use(mediaRouter);
 app.use(checkoutRouter);
+app.use(profileRouter);
+app.use(snackRouter)
 
 const socketIO = require("socket.io");
 const { getPromptRes } = require("./utilities/openai");
